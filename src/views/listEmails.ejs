@@ -1,17 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-mails</title>
-</head>
-<body>
-    <h1>E-mails cadastrados</h1>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-mails Cadastrados</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
 
-    <ul>
-        <% emails.forEach(email => { %>
-            <li><%= email.email %></li>
-        <% }) %>
-    </ul>
-</body>
+  <body>
+    <div class="container">
+      <h1>E-mails Cadastrados</h1>
+      <ul>
+        <% emails.forEach(email=> { %>
+        <li>
+          <span> <%= email %> </span>
+          <span>
+            <form action="/list/delete" method="post">
+              <input type="hidden" name="email" value="<%= email %>" />
+              <button type="submit" class="btn-delete">Excluir</button>
+            </form>
+          </span>
+        </li>
+        <% }); %>
+      </ul>
+    </div>
+  </body>
 </html>
